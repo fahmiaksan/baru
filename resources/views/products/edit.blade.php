@@ -11,7 +11,7 @@
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     <h3 class="text-xl font-semibold mb-6">Edit Product</h3>
 
-                  <form action="{{ route('products.update', $product->id) }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('products.update', $product->id) }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
 
@@ -57,13 +57,16 @@
                             @error('image')<p class="text-red-500 text-sm mt-1">{{ $message }}</p>@enderror
                         </div>
 
-                        <!-- Tombol -->
-                        <div class="flex justify-end">
+                        <!-- Tombol Update -->
+                        <div class="flex justify-end mb-4">
                             <button type="submit" class="px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-md">
                                 Update Product
                             </button>
                         </div>
                     </form>
+
+                    
+
                 </div>
             </div>
         </div>
