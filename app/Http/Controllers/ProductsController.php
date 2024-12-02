@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Yajra\DataTables\DataTables;
 
@@ -11,6 +12,12 @@ class ProductsController extends Controller
 {
     public function index(Request $request)
     {
+        $auth = Auth::user();
+        $role = $auth->role;
+        if ($role != 'staff') {
+            return redirect('/');
+            exit;
+        }
         $products = Product::all();
         if ($request->ajax()) {
 

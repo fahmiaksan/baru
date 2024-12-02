@@ -5,6 +5,8 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CheckoutController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -43,6 +45,11 @@ Route::middleware('auth')->group(function () {
     Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
     Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
     Route::delete('/cart/{id}', [CartController::class, 'remove'])->name('cart.remove');
+
+    Route::post('/checkout', [CheckoutController::class, 'process'])->name('checkout');
+    Route::get('/checkout/success/{order}', [CheckoutController::class, 'success'])->name('checkout.success');
+    Route::get('/checkouts/manage', [CheckoutController::class, 'manage'])->name('checkouts.manage');
+    Route::post('/checkouts/{id}/status', [CheckoutController::class, 'updateStatus'])->name('checkouts.updateStatus');
 });
 
 require __DIR__ . '/auth.php';

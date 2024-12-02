@@ -12,6 +12,9 @@ class CartController extends Controller
     // Menambahkan produk ke keranjang
     public function add(Request $request)
     {
+
+        $user = Auth::user();
+
         // Validasi input
         $request->validate([
             'product_id' => 'required|exists:products,id',

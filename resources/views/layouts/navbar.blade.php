@@ -11,7 +11,7 @@
       <a href="{{ route('cart.index') }}" id="shopping-cart" class="hover:bg-[#d7b29d] py-2 rounded-lg px-3"><x-feathericon-shopping-cart/></a>
       <a href="#" id="hamburger-menu" class="md:hidden hover:bg-[#d7b29d] py-2 rounded-lg px-3"><x-feathericon-alert-triangle/></a>
   </div>
-  @if (Route::has('login'))
+  @if (Auth::check())
   <a href="{{ route('dashboard') }}" class="hidden md:block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700" id="btnLogin">Dashboard</a>
   @else
   <a href="{{ route('login') }}" class="hidden md:block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700" id="btnLogin">login</a>

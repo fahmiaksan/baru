@@ -27,7 +27,7 @@
             ajax: '{{ route('products.index') }}',  // URL untuk mengambil data
             columns: [
                 { data: 'name', name: 'name' },
-                { data: 'price', name: 'price' },
+                { data: 'price', name: 'price', render: $.fn.dataTable.render.number(',', '.', 0, 'Rp ') },
                 { data: 'stock', name: 'stock' },
                 { data: 'action', name: 'action', orderable: false, searchable: false }
             ]
