@@ -32,9 +32,9 @@ class ProductSeeder extends Seeder
         foreach (range(1, 10) as $index) {
             $category = $categories[array_rand($categories)];  // Pilih kategori acak
             $productName = ucfirst($faker->word) . ' ' . $category;  // Nama produk yang lebih realistis
-
+            $namePath = ['log', 'logo-1', 'logo'];
             // Simulasi gambar
-            $imagePath = 'images/products/' . $faker->image('public/storage/images/products', 640, 480, 'fashion', false);
+            $imagePath = 'images/products/' . $namePath[array_rand($namePath)] . '.png';
 
             Product::create([
                 'name' => $productName,  // Nama produk
