@@ -2,6 +2,7 @@
 
 <div class="container mt-5 mx-auto">
     <h2 class="text-2xl font-bold mb-4 text-white">Product List</h2>
+    <a href="" class="btn btn-primary mb-4" id="add-product">Add Product</a>
     <table class=" table table-bordered" id="products-table">
         <thead>
             <tr class="bg-gray-700 text-white">
